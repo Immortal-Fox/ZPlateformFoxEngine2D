@@ -13,7 +13,7 @@
         Protected isMoving As Boolean = False
 
         Sub New()
-            collisionOn = True
+            GetCollisionOn = True
         End Sub
 
         Protected Overrides Sub Tick()

@@ -4,7 +4,7 @@ Namespace Sprites
         Inherits AbstractSprite
 
         Sub New()
-            collisionOn = False
+            GetCollisionOn = False
         End Sub
 
         Protected animationTime As Integer = 5

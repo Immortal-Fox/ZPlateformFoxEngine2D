@@ -8,7 +8,7 @@
 
 
         Sub New()
-            collisionOn = True
+            GetCollisionOn = True
         End Sub
 
 

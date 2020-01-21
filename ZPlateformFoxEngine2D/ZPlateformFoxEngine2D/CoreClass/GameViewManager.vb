@@ -3,8 +3,10 @@
 ''' Gère l'affichage sur le contrôle graphique souhaité
 ''' </summary>
 Public Class GameViewManager
-    ' GameEngine parent
-    Private parent As GameEngine
+    ''' <summary>
+    ''' Game Engine parent
+    ''' </summary>
+    Private ReadOnly parent As GameEngine
 
     ' Contrôle pour l'affichage du jeu
     Private pboxView As PictureBox
@@ -43,6 +45,14 @@ Public Class GameViewManager
     Public Sub SetViewControl(ByVal _viewControl As PictureBox)
         pboxView = _viewControl
     End Sub
+
+    ''' <summary>
+    ''' Créer un objet caméra sans l'ajouter dans la liste des caméras et le retourne
+    ''' </summary>
+    ''' <returns>Caméra</returns>
+    Public Shared Function CreateCamera() As Camera
+        Return New Camera
+    End Function
 
     ''' <summary>
     ''' Ajoute une camera dans la liste de camera
@@ -124,80 +134,83 @@ Public Class GameViewManager
         If IsNothing(bmpView) Then
             Exit Sub
         End If
+        Try
+            ' On clear l'image
+            gView.Clear(Color.Azure)
 
-        ' On clear l'image
-        gView.Clear(Color.Azure)
+            ' On parcours la liste des caméras
+            For Each _camera As Camera In listCamera
+                ' Si la caméra est activée
+                If _camera.GetEnabled Then
+                    ' On récupère la liste des sprites qui collisionnent avec le rectangle de la caméra
+                    For Each _sprite As Sprites.AbstractSprite In parent.SpritesManagement.GetInSceneSprites(_camera.GetRectangle)
+                        '  If _sprite.getVisible Then todo
+                        ' Dessine l'image
+                        gView.DrawImage(CType(_sprite.GetCurrentImage, Image), New Rectangle(_sprite.GetPosition.X - _camera.GetRectangle.X, _sprite.GetPosition.Y - _camera.GetRectangle.Y, _sprite.GetSize.Width, _sprite.GetSize.Height))
+                        ' Si le mode debug est demandé on affiche également les hitbox
+                        If parent.DebugManagement.ShowDebugHitbox Then
+                            gView.DrawRectangle(New Pen(Color.Black, 1), New Rectangle(_sprite.GetPosition.X - _camera.GetRectangle.X, _sprite.GetPosition.Y - _camera.GetRectangle.Y, _sprite.GetSize.Width, _sprite.GetSize.Height))
+                        End If
+                    Next
+                End If
+            Next
 
-        ' On parcours la liste des caméras
-        For Each _camera As Camera In listCamera
-            ' Si la caméra est activée
-            If _camera.GetEnabled Then
-                ' On récupère la liste des sprites qui collisionnent avec le rectangle de la caméra
-                For Each _sprite As Sprites.AbstractSprite In parent.SpritesManagement.GetInSceneSprites(_camera.GetRectangle)
-                    '  If _sprite.getVisible Then todo
-                    ' Dessine l'image
-                    gView.DrawImage(CType(_sprite.GetCurrentImage, Image), New Rectangle(_sprite.GetPosition.X - _camera.GetRectangle.X, _sprite.GetPosition.Y - _camera.GetRectangle.Y, _sprite.GetSize.Width, _sprite.GetSize.Height))
-                    ' Si le mode debug est demandé on affiche également les hitbox
-                    If parent.DebugManagement.ShowDebugHitbox Then
-                        gView.DrawRectangle(New Pen(Color.Black, 1), New Rectangle(_sprite.GetPosition.X - _camera.GetRectangle.X, _sprite.GetPosition.Y - _camera.GetRectangle.Y, _sprite.GetSize.Width, _sprite.GetSize.Height))
+            ' Ensuite dessine l'interface de jeu
+            If parent.ScreenElementsManagement.GetListScreenElements.Count > 0 Then
+                For Each _screenElement As ScreenElements.AbstractScreenElement In parent.ScreenElementsManagement.GetListScreenElements
+                    If Not IsNothing(_screenElement) Then
+                        gView.DrawImageUnscaledAndClipped(_screenElement.GetImage, New Rectangle(_screenElement.GetPosition, _screenElement.GetSize))
                     End If
                 Next
             End If
-        Next
 
-        ' Ensuite dessine l'interface de jeu
-        If parent.ScreenElementsManagement.GetListScreenElements.Count > 0 Then
-            For Each _screenElement As ScreenElements.AbstractScreenElement In parent.ScreenElementsManagement.GetListScreenElements
-                If Not IsNothing(_screenElement) Then
-                    gView.DrawImageUnscaledAndClipped(_screenElement.GetImage, New Rectangle(_screenElement.GetPosition, _screenElement.GetSize))
-                End If
-            Next
-        End If
-
-        ' Ensuite on dessine le dialogue
-        If True Then
-            If Not IsNothing(parent.DialogManagement.GetMessageToDraw) Then
-                Dim temp As GameMessageDialog = parent.DialogManagement.GetMessageToDraw
-                Dim sf As New StringFormat With {
+            ' Ensuite on dessine le dialogue
+            If True Then
+                If Not IsNothing(parent.DialogManagement.GetMessageToDraw) Then
+                    Dim temp As GameMessageDialog = parent.DialogManagement.GetMessageToDraw
+                    Dim sf As New StringFormat With {
                     .Alignment = StringAlignment.Center
                 }
 
-                'If parent.DialogManagement.GetDrawDialog Then
-                If Not IsNothing(parent.DialogManagement.GetMessageToDraw) Then
-                    ' Dessine l'arrière plan du dialogue
-                    gView.FillRectangle(New SolidBrush(temp.backgroundColor), rectDialogFull)
-                    ' Dessine le rectangle gauche contenant titre et image
-                    gView.FillRectangle(New SolidBrush(temp.backgroundColor), rectDialogLeft)
-                    ' Dessine le rectangle contenant le titre
-                    gView.FillRectangle(New SolidBrush(temp.titleBackgroundColor), rectDialogTitle)
-                    ' Dessine le titre
-                    gView.DrawString(temp.title, temp.titleFont, New SolidBrush(temp.titleColor), rectDialogTitle, sf)
-                    ' Dessine le rectangle contenant l'image
-                    gView.FillRectangle(New SolidBrush(Color.Red), rectDialogImage)
-                    ' Dessine l'image
-                    If Not IsNothing(temp.image) Then
-                        gView.DrawImageUnscaledAndClipped(temp.image, rectDialogImage)
+                    'If parent.DialogManagement.GetDrawDialog Then
+                    If Not IsNothing(parent.DialogManagement.GetMessageToDraw) Then
+                        ' Dessine l'arrière plan du dialogue
+                        gView.FillRectangle(New SolidBrush(temp.backgroundColor), rectDialogFull)
+                        ' Dessine le rectangle gauche contenant titre et image
+                        gView.FillRectangle(New SolidBrush(temp.backgroundColor), rectDialogLeft)
+                        ' Dessine le rectangle contenant le titre
+                        gView.FillRectangle(New SolidBrush(temp.titleBackgroundColor), rectDialogTitle)
+                        ' Dessine le titre
+                        gView.DrawString(temp.title, temp.titleFont, New SolidBrush(temp.titleColor), rectDialogTitle, sf)
+                        ' Dessine le rectangle contenant l'image
+                        gView.FillRectangle(New SolidBrush(Color.Red), rectDialogImage)
+                        ' Dessine l'image
+                        If Not IsNothing(temp.image) Then
+                            gView.DrawImageUnscaledAndClipped(temp.image, rectDialogImage)
+                        End If
+                        ' Dessine le rectangle contenant le texte
+                        gView.FillRectangle(New SolidBrush(temp.textBackgroundColor), rectDialogText)
+                        ' Dessine le texte
+                        gView.DrawString(parent.DialogManagement.GetTextToDraw, temp.textFont, New SolidBrush(temp.textColor), rectDialogText, sf)
                     End If
-                    ' Dessine le rectangle contenant le texte
-                    gView.FillRectangle(New SolidBrush(temp.textBackgroundColor), rectDialogText)
-                    ' Dessine le texte
-                    gView.DrawString(parent.DialogManagement.GetTextToDraw, temp.textFont, New SolidBrush(temp.textColor), rectDialogText, sf)
                 End If
             End If
-        End If
 
-        If parent.DebugManagement.ShowDebugTexte Then
-            gView.DrawString(CStr(parent.DebugManagement.GetTranslatedDebugText), New Font("Consolas", 9, FontStyle.Bold), New SolidBrush(Color.Black), 0, 0)
-        End If
-        ' Met à jour le contrôle d'affichage
-        If Not IsNothing(pboxView.Image) Then
-            pboxView.Image.Dispose()
-        End If
-        pboxView.Image = CType(bmpView.Clone, Image)
-        If Not IsNothing(debugLastTimeUpdate) Then
-            debugFPS = CInt(1000 / (Date.Now.Subtract(debugLastTimeUpdate).TotalMilliseconds + 1))
-        End If
-        debugLastTimeUpdate = Date.Now
+            If parent.DebugManagement.ShowDebugTexte Then
+                gView.DrawString(CStr(parent.DebugManagement.GetTranslatedDebugText), New Font("Consolas", 9, FontStyle.Bold), New SolidBrush(Color.Black), 0, 0)
+            End If
+            ' Met à jour le contrôle d'affichage
+            If Not IsNothing(pboxView.Image) Then
+                pboxView.Image.Dispose()
+            End If
+            pboxView.Image = CType(bmpView.Clone, Image)
+            If Not IsNothing(debugLastTimeUpdate) Then
+                debugFPS = CInt(1000 / (Date.Now.Subtract(debugLastTimeUpdate).TotalMilliseconds + 1))
+            End If
+            debugLastTimeUpdate = Date.Now
+        Catch
+
+        End Try
     End Sub
 
 

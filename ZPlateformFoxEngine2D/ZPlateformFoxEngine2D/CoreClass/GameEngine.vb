@@ -9,26 +9,26 @@ Public Class GameEngine
     ' Informations sur le moteur de jeu
     Private ReadOnly author As String = "Ludovic Charmillot @Zyldar @Immortal Fox"
     Private ReadOnly version As String = "Version 1"
-    Private ReadOnly name As String = "Fox GameEngine 2D"
+    Private ReadOnly name As String = "ZPlateformFoxEngine2D"
 
     ' Gestion des éléments d'interface du jeu
-    Private ReadOnly GameScreenElementsManagement As GameScreenElementsManager
+    Private WithEvents GameScreenElementsManagement As GameScreenElementsManager
     ' Gestion des sprites du jeu
-    Private ReadOnly GameSpritesManagement As GameSpritesManager
+    Private WithEvents GameSpritesManagement As GameSpritesManager
     ' Gestion de l'affichage du jeu
-    Private ReadOnly GameViewManagement As GameViewManager
+    Private WithEvents GameViewManagement As GameViewManager
     ' Gestion des méthodes de debug
-    Private ReadOnly GameDebugManagement As GameDebugManager
+    Private WithEvents GameDebugManagement As GameDebugManager
     ' Gestion des méthodes d'enregistrement du cache de jeu
-    Private ReadOnly GameCacheManagement As GameCacheManager
+    Private WithEvents GameCacheManagement As GameCacheManager
     ' Gestion des inputs 
-    Private ReadOnly GameIOManagement As GameIOManager
+    Private WithEvents GameIOManagement As GameIOManager
     ' Gestion du jeu
-    Private ReadOnly GameCoreManagement As GameCoreManager
+    Private WithEvents GameCoreManagement As GameCoreManager
     ' Gestion des dialogues
-    Private ReadOnly GameDialogManagement As GameDialogManager
+    Private WithEvents GameDialogManagement As GameDialogManager
     ' Gestion des ressources
-    Private ReadOnly GameRessourcesManagement As GameRessourcesManager
+    Private WithEvents GameRessourcesManagement As GameRessourcesManager
 
     ' Cadenceur de jeu
     Private WithEvents GameTick As Timer
@@ -47,6 +47,8 @@ Public Class GameEngine
         }
 
         ' Instancie les classes de gestion de Game Engine
+        ' Gestion des ressources
+        GameRessourcesManagement = New GameRessourcesManager(Me)
         ' Gestion des ScreenElements
         GameScreenElementsManagement = New GameScreenElementsManager(Me)
         ' Gestion des sprites
@@ -61,8 +63,6 @@ Public Class GameEngine
         GameIOManagement = New GameIOManager(Me)
         ' Gestion des dialogues de jeu
         GameDialogManagement = New GameDialogManager(Me)
-        ' Gestion des ressources
-        GameRessourcesManagement = New GameRessourcesManager(Me)
         ' Gestion du jeu
         GameCoreManagement = New GameCoreManager(Me)
 

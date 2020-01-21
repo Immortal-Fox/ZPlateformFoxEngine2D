@@ -6,7 +6,8 @@
 
 
         Sub New()
-            collisionOn = True
+            GetCollisionOn = True
+            ' AddImage(FormMain.Game.RessourcesManagement.LoadExternalImage("C:\Users\ludovic\Desktop\Money.png"))
             AddImage(Image.FromFile("C:\Users\ludovic\Desktop\Money.png"))
         End Sub
 

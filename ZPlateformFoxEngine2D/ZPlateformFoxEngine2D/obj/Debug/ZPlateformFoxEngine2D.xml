@@ -1,0 +1,1451 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ZPlateformFoxEngine2D
+</name>
+</assembly>
+<members>
+<member name="T:ZPlateform.My.Resources.Resources">
+<summary>
+  Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+</summary>
+</member>
+<member name="P:ZPlateform.My.Resources.Resources.ResourceManager">
+<summary>
+  Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+</summary>
+</member>
+<member name="P:ZPlateform.My.Resources.Resources.Culture">
+<summary>
+  Remplace la propriété CurrentUICulture du thread actuel pour toutes
+  les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+</summary>
+</member>
+<member name="T:ZPlateform.ParameterFileReader">
+ <summary>
+ Permet d'intéragir avec un fichier de paramètres
+ </summary>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.ReadFile(System.String,System.Boolean)">
+ <summary>
+ Lit le fichier contenant les paramètres et les récupère dans parameter_table
+ </summary>
+ <param name="path">Chemin d'accès au fichier</param>
+ <param name="clearparameters">true si il faut supprimer les paramètres actuels</param>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.ResetParameter">
+ <summary>
+ Réinitialise la liste des paramètres
+ </summary>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.ParameterCount">
+ <summary>
+ Retourne le nombre de paramètres
+ </summary>
+ <returns>Nombre de paramètre(s) enregistré(s)</returns>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.SetParameter(System.String,System.String)">
+ <summary>
+ Modifie le paramètre avec la valeur
+ </summary>
+ <param name="name">Nom du paramètre à modifier</param>
+ <param name="value">Valeur</param>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.WriteFile(System.String)">
+ <summary>
+ Ecrit dans le fichier tous les paramètres enregistrés
+ </summary>
+ <param name="path">Chemin d'accès au fichier</param>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.AddParameter(System.String,System.String)">
+ <summary>
+ Ajouter un paramètre avec sa valeur s'il existe, le modifie
+ </summary>
+ <param name="name">Nom du paramètre</param>
+ <param name="value">Valeur du paramètre</param>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.DeleteParameter(System.String)">
+ <summary>
+ Supprime un paramètre
+ </summary>
+ <param name="name">nom du paramètre</param>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.Exist(System.String)">
+ <summary>
+ Retourne vrai si le paramètre existe
+ </summary>
+ <param name="name">Nom du paramètre</param>
+ <returns>True si le paramètre existe sinon retourne false </returns>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.GetParameter(System.String)">
+ <summary>
+ Récupère la valeur d'un paramètre
+ </summary>
+ <param name="name">nom du paramètre</param>
+ <returns>Valeur du paramètre</returns>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.GetBoolParameter(System.String,System.Boolean)">
+ <summary>
+ Récupère la valeur d'un paramètre au format Boolean
+ </summary>
+ <param name="name">Nom du paramètre</param>
+ <param name="defaultparameter">Paramètre retourné si le paramètre n'existe pas ou qu'une erreur se produise</param>
+ <returns></returns>
+</member>
+<member name="M:ZPlateform.ParameterFileReader.GetIntParameter(System.String,System.Int32)">
+ <summary>
+ Récupère la valeur d'un paramètre au format integer
+ </summary>
+ <param name="name">Nom du paramètre</param>
+ <param name="defaultparameter">Paramètre retourné en cas d'erreur ou si le paramètre n'existe pas</param>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.ParameterFileReader.ParameterRelation">
+ <summary>
+ Relation entre un nom et une valeur
+ </summary>
+</member>
+<member name="F:ZPlateform.AbstractGameCore._parent">
+ <summary>
+ GameEngine parent
+ </summary>
+</member>
+<member name="M:ZPlateform.AbstractGameCore.Tick">
+ <summary>
+ Evènement lors du tick de l'horloge de jeu
+ </summary>
+</member>
+<member name="M:ZPlateform.AbstractGameCore.KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Evènement lorsqu'une touche calvier est enfoncée
+ </summary>
+</member>
+<member name="M:ZPlateform.AbstractGameCore.KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Evènement lorsqu'une touche clavier est relâchée
+ </summary>
+</member>
+<member name="M:ZPlateform.AbstractGameCore.MouseDown">
+ <summary>
+ Evènement lorsque une touche de la souris est enfoncée
+ </summary>
+</member>
+<member name="M:ZPlateform.AbstractGameCore.MouseMove">
+ <summary>
+ Evènement lorsque la souris se déplace
+ </summary>
+</member>
+<member name="M:ZPlateform.AbstractGameCore.MouseUp">
+ <summary>
+ Evènement lorsque une touche de la souris est relâchée
+ </summary>
+</member>
+<member name="T:ZPlateform.Camera">
+ <summary>
+ Représente une caméra pour la scène
+ </summary>
+</member>
+<member name="M:ZPlateform.Camera.#ctor">
+ <summary>
+ Créer une nouvelle camera
+ </summary>
+</member>
+<member name="P:ZPlateform.Camera.GetEnabled">
+ <summary>
+ Propriété qui active ou non le dessin de l'image de la camera
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Camera.GetName">
+ <summary>
+ Retourne ou modifie le nom de la camera
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Camera.GetPosition">
+ <summary>
+ Retourne ou modifie la position de capture de la camera
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Camera.GetPositionView">
+ <summary>
+ Retourne ou modifie la position de dessin de la camera
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Camera.GetSize">
+ <summary>
+ Retourne ou modifie la taille de capture de la camera
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Camera.GetRectangle">
+ <summary>
+ Retourne ou modifie le rectangle de capture de la camera
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.GameCacheManager">
+ <summary>
+ Gestion du cache de jeu
+ Ajouter, Lire des données
+ </summary>
+</member>
+<member name="F:ZPlateform.GameCacheManager.parent">
+ <summary>
+ Game Engine parent
+ </summary>
+</member>
+<member name="F:ZPlateform.GameCacheManager.pFile">
+ <summary>
+ Objet pour lire le fichier de cache
+ </summary>
+</member>
+<member name="F:ZPlateform.GameCacheManager.cachePath">
+ <summary>
+ Chemin vers le cache du jeu
+ </summary>
+</member>
+<member name="E:ZPlateform.GameCacheManager.CacheSaved">
+ <summary>
+ Ce déclenche lors que le cache a été écrit
+ </summary>
+</member>
+<member name="M:ZPlateform.GameCacheManager.InitializeCache(System.String)">
+ <summary>
+ Initialise le système de cache
+ </summary>
+ <param name="_cachePath">Chemin d'accès au fichier de cache</param>
+</member>
+<member name="M:ZPlateform.GameCacheManager.WriteCache">
+ <summary>
+ Enregistre le fichier de cache
+ </summary>
+</member>
+<member name="M:ZPlateform.GameCacheManager.AddCacheValue(System.String,System.String)">
+ <summary>
+ Ajoute une valeur associée à un nom dans le cache
+ </summary>
+ <param name="_name">Nom du cache</param>
+ <param name="_value">Valeur du cache</param>
+</member>
+<member name="M:ZPlateform.GameCacheManager.SetCacheValue(System.String,System.String)">
+ <summary>
+ Modifie la valeur d'un paramètre de cache
+ </summary>
+ <param name="_name">Nom du cache</param>
+ <param name="_value"></param>
+</member>
+<member name="M:ZPlateform.GameCacheManager.GetCacheValue(System.String)">
+ <summary>
+ Récupère la valeur du cache
+ </summary>
+ <param name="_name">Nom du cache</param>
+ <returns>Valeur du cache</returns>
+</member>
+<member name="P:ZPlateform.GameCacheManager.GetCachePath">
+ <summary>
+ Retourne ou modifie le chemin d'accès au fichier du cache de jeu
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.GameCoreManager">
+ <summary>
+ Gère la logique de jeu
+ Ici sera placé le code utilisateur
+ </summary>
+</member>
+<member name="T:ZPlateform.GameDebugManager">
+ <summary>
+ Fournit des méthodes pour aider au deboggage 
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDebugManager.parent">
+ <summary>
+ Accès aux méthodes du parent
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDebugManager.debugText">
+ <summary>
+ Indique si le mode de debug est actif
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDebugManager.listLogs">
+ <summary>
+ Liste contenant les logs
+ </summary>
+</member>
+<member name="M:ZPlateform.GameDebugManager.Log(System.String)">
+ <summary>
+ Ajoute une ligne dans texte dans les logs
+ </summary>
+ <param name="_text"></param>
+</member>
+<member name="M:ZPlateform.GameDebugManager.SetRawDebugTexte(System.String)">
+ <summary>
+ Définit le texte brut contenant les nom de variable entre accolade
+ </summary>
+ <param name="_rawText"></param>
+</member>
+<member name="M:ZPlateform.GameDebugManager.GetTranslatedDebugText">
+ <summary>
+ Retourne le texte avec la conversion des noms de variable en valeur
+ </summary>
+ <returns>Texte de debug</returns>
+</member>
+<member name="P:ZPlateform.GameDebugManager.GetParent">
+ <summary>
+ Définit ou retourne le GameEngine parent
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDebugManager.ShowDebugTexte">
+ <summary>
+ Affiche ou non le texte de debug définit dans rawdebugtext
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDebugManager.ShowDebugHitbox">
+ <summary>
+ Affiche ou non le rectangle des hitbox dans gameview
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.GameDialogManager">
+ <summary>
+ Gère les dialogues de jeu
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.parent">
+ <summary>
+ GameEngine parent
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.listDialogs">
+ <summary>
+ Liste contenant les dialogues
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.lastCreatedDialog">
+ <summary>
+ Dernier dialogue créé
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.drawDialog">
+ <summary>
+ Indique à GameView si il doit dessiner le dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.currentMessage">
+ <summary>
+ Message en cours
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.currentTextToDraw">
+ <summary>
+ Texte que GameView doit dessiner
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.currentDialog">
+ <summary>
+ Dialogue en cours de lecture
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.currentIndex">
+ <summary>
+ Index du message en cours de lecture
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.currentExtraTick">
+ <summary>
+ Tick supplémentaire avant fin de dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.SkipMessageKey">
+ <summary>
+ Touche clavier pour passer le message
+ </summary>
+</member>
+<member name="F:ZPlateform.GameDialogManager.SkipDialogKey">
+ <summary>
+ Touche clavier pour passer le dialogue
+ </summary>
+</member>
+<member name="M:ZPlateform.GameDialogManager.#ctor(ZPlateform.GameEngine)">
+ <summary>
+ Créer le GameDialogManager
+ </summary>
+ <param name="_parent">GameEngine</param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.AddDialog(ZPlateform.GameDialog)">
+ <summary>
+ Ajoute un dialogue
+ </summary>
+ <param name="_dialog">Dialogue contenant les messages</param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.CreateDialog(System.String)">
+ <summary>
+ Créer un dialogue et l'ajoute directement dans la liste des dialogues
+ </summary>
+ <param name="_name"></param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.NameExist(System.String)">
+ <summary>
+ Vérifie si le nom de dialogue existe déjà
+ </summary>
+ <param name="_name">Nom du dialogue</param>
+ <returns>True si il existe sinon retourne false</returns>
+</member>
+<member name="M:ZPlateform.GameDialogManager.AddMessageToLastCreatedDialog(ZPlateform.GameMessageDialog)">
+ <summary>
+ Ajoute un message au dernier dialogue qui a été créé
+ </summary>
+ <param name="_message">Message de dialogue</param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.RemoveDialog(ZPlateform.GameDialog)">
+ <summary>
+ Supprime un dialogue
+ </summary>
+ <param name="_dialog">Instance du dialogue à supprimer</param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.RemoveDialogByName(System.String)">
+ <summary>
+ Supprime un dialogue selon son nom
+ </summary>
+ <param name="_name">Nom du dialogue</param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.ShowDialog(System.String)">
+ <summary>
+ Affiche un dialogue
+ </summary>
+ <param name="_name">Nom du dialogue</param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.AbortDialog">
+ <summary>
+ Arrête immédiatement le dialogue en cours
+ </summary>
+</member>
+<member name="M:ZPlateform.GameDialogManager.Tick">
+ <summary>
+ Horloge pour dialogue
+ </summary>
+</member>
+<member name="M:ZPlateform.GameDialogManager.KeyDown(System.Windows.Forms.Keys)">
+ <summary>
+ Event clavier pour passer les dialogues
+ </summary>
+ <param name="_key"></param>
+</member>
+<member name="M:ZPlateform.GameDialogManager.NextMessage">
+ <summary>
+ Passe au message de dialogue suivant
+ </summary>
+</member>
+<member name="P:ZPlateform.GameDialogManager.GetDrawDialog">
+ <summary>
+ Indique si il faut dessiner un dialogue
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDialogManager.GetMessageToDraw">
+ <summary>
+ Récupère le message a dessiner
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDialogManager.DebugDialogCount">
+ <summary>
+ Retourne le nombre de dialogue contenu dans GameDialogManager
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDialogManager.GetTextToDraw">
+ <summary>
+ Retourne le texte qui doit être dessiné
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.GameDialog">
+ <summary>
+ Est un dialogue
+ Contient une liste de messages de dialogue
+ </summary>
+</member>
+<member name="M:ZPlateform.GameDialog.AddMessage(ZPlateform.GameMessageDialog)">
+ <summary>
+ Ajoute un message au dialogue
+ </summary>
+ <param name="_message">Message</param>
+</member>
+<member name="P:ZPlateform.GameDialog.GetName">
+ <summary>
+ Retourne ou modifie le nom du dialogue
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDialog.GetCanFullSkip">
+ <summary>
+ Le dialogue peut-être passé directement
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDialog.IsLastIndex(System.Int32)">
+ <summary>
+ Indique si l'index est le dernier de la liste de message du dialogue
+ </summary>
+ <param name="_index"></param>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameDialog.GetMessageByIndex(System.Int32)">
+ <summary>
+ Retourne un message de dialogue selon l'index
+ </summary>
+ <param name="_index">Index de la liste</param>
+ <returns>Message de dialogue</returns>
+</member>
+<member name="T:ZPlateform.GameMessageDialog">
+ <summary>
+ Est un message de dialogue
+ </summary>
+</member>
+<member name="T:ZPlateform.GameMessageDialog.TYPEDIALOG">
+ <summary>
+ Type de dialog
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.backgroundColor">
+ <summary>
+ Couleur de fond générale
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.text">
+ <summary>
+ Texte qui sera affiché pendant le dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.textFont">
+ <summary>
+ Police du texte du dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.textColor">
+ <summary>
+ Couleur du texte du dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.textBackgroundColor">
+ <summary>
+ Couleur d'arrière plan du dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.title">
+ <summary>
+ Titre du dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.titleFont">
+ <summary>
+ Police du titre du dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.titleColor">
+ <summary>
+ Couleur du titre du dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.titleBackgroundColor">
+ <summary>
+ Couleur de fond du titre du dialogue
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.image">
+ <summary>
+ Image du dialog
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.canSkip">
+ <summary>
+ Le message peut-être passé
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.skipAutoAfter">
+ <summary>
+ Le message passe automatiquement après la lecture
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.instantText">
+ <summary>
+ Le texte est affiché instantanément
+ </summary>
+</member>
+<member name="F:ZPlateform.GameMessageDialog.extraTick">
+ <summary>
+ Tick supplémentaire après affichage du dialogue
+ </summary>
+</member>
+<member name="T:ZPlateform.GameEngine">
+ <summary>
+ Moteur de jeu 2D pour jeu de plateforme en .NET
+ </summary>
+</member>
+<member name="M:ZPlateform.GameEngine.StopTick">
+ <summary>
+ Arrête le cadenceur de jeu
+ </summary>
+</member>
+<member name="M:ZPlateform.GameEngine.StartTick">
+ <summary>
+ Démarre le cadenceur de jeu
+ </summary>
+</member>
+<member name="M:ZPlateform.GameEngine.SetGameView(System.Windows.Forms.PictureBox)">
+ <summary>
+ Définit le contrôle qui servira a afficher le jeu
+ </summary>
+ <param name="_pboxView"></param>
+</member>
+<member name="M:ZPlateform.GameEngine.Tick">
+ <summary>
+ Horloge de jeu
+ Cadence le dessin du jeu
+ </summary>w
+</member>
+<member name="M:ZPlateform.GameEngine.TickSecond">
+ <summary>
+ Horloge de jeu à la seconde
+ </summary>
+</member>
+<member name="P:ZPlateform.GameEngine.GetGameTick">
+ <summary>
+ Retourne le timer qui rythme la cadence de jeu
+ </summary>
+ <returns>Timer</returns>
+</member>
+<member name="P:ZPlateform.GameEngine.ScreenElementsManagement">
+ <summary>
+ Accès aux méthodes de gestion des ScreenElements
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.SpritesManagement">
+ <summary>
+ Accès aux méthodes de gestion des sprites
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.ViewManagement">
+ <summary>
+ Accès aux méthodes de gestion de la vue
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.DebugManagement">
+ <summary>
+ Accès aux méthodes de gestion de debug
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.CacheManagement">
+ <summary>
+ Accès aux méthodes de gestion du cache
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.IOManagement">
+ <summary>
+ Accès aux méthodes de gestion des entrées/sorties
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.CoreManagement">
+ <summary>
+ Accès à la logique de jeu
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.DialogManagement">
+ <summary>
+ Accès aux méthodes de gestion des dialogues
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.GameEngine.RessourcesManagement">
+ <summary>
+ Accès aux méthodes de gestion des ressources
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.GameInventoryManager">
+ <summary>
+ Gestionnaire d'inventaire
+ </summary>
+</member>
+<member name="F:ZPlateform.GameInventoryManager.parent">
+ <summary>
+ GameEngine parent
+ </summary>
+</member>
+<member name="F:ZPlateform.GameInventoryManager.listObjects">
+ <summary>
+ Liste des objets
+ </summary>
+</member>
+<member name="T:ZPlateform.GameIOManager">
+ <summary>
+ Gestion des Input
+ </summary>
+</member>
+<member name="F:ZPlateform.GameIOManager.parent">
+ <summary>
+ GameEngine parent
+ </summary>
+</member>
+<member name="F:ZPlateform.GameIOManager._KeyEventSource">
+ <summary>
+ Source des evènements clavier
+ </summary>
+</member>
+<member name="F:ZPlateform.GameIOManager._MouseEventSource">
+ <summary>
+ Source des evènements souris
+ </summary>
+</member>
+<member name="F:ZPlateform.GameIOManager.listKeyDown">
+ <summary>
+ Liste des touches enfoncées
+ </summary>
+</member>
+<member name="M:ZPlateform.GameIOManager.#ctor(ZPlateform.GameEngine)">
+ <summary>
+ Créer un IOManager pour GameEngine
+ </summary>
+ <param name="_parent"></param>
+</member>
+<member name="M:ZPlateform.GameIOManager.SetKeyEventSource(System.Windows.Forms.Form)">
+ <summary>
+ Définir la source des events clavier
+ </summary>
+ <param name="_form">Formulaire qui capture les events clavier</param>
+</member>
+<member name="M:ZPlateform.GameIOManager.SetMouseEVentSource(System.Windows.Forms.PictureBox)">
+ <summary>
+ Définir la source des events souris
+ </summary>
+ <param name="_pictureBox">Controle qui capture les events souris</param>
+</member>
+<member name="M:ZPlateform.GameIOManager.KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Touche enfoncée
+ Distribution des events
+ </summary>
+</member>
+<member name="M:ZPlateform.GameIOManager.KeyUp(System.Object,System.Windows.Forms.KeyEventArgs)">
+ <summary>
+ Touche relachée
+ Distribution des events
+ </summary>
+</member>
+<member name="M:ZPlateform.GameIOManager.KeyIsDown(System.Windows.Forms.Keys)">
+ <summary>
+ Teste si une touche clavier est enfoncée
+ </summary>
+ <param name="_key">Code de la touche clavier</param>
+ <returns>True si la touche est enfoncée, sinon retourne faux</returns>
+</member>
+<member name="T:ZPlateform.GameRessourcesManager">
+ <summary>
+ Gestion des ressources
+ </summary>
+</member>
+<member name="F:ZPlateform.GameRessourcesManager.parent">
+ <summary>
+ GameEngine parent
+ </summary>
+</member>
+<member name="F:ZPlateform.GameRessourcesManager.listImages">
+ <summary>
+ Liste contenant les images
+ </summary>
+</member>
+<member name="F:ZPlateform.GameRessourcesManager.listTextFile">
+ <summary>
+ Liste contenant les listes de texte
+ </summary>
+</member>
+<member name="F:ZPlateform.GameRessourcesManager.listSounds">
+ <summary>
+ Liste contenant les sons
+ </summary>
+</member>
+<member name="F:ZPlateform.GameRessourcesManager.noTextureImage">
+ <summary>
+ Image générée par la classe pour remplacer les images manquantes
+ </summary>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.#ctor(ZPlateform.GameEngine)">
+ <summary>
+ Créer le gestionnaire de ressource
+ </summary>
+ <param name="_parent"></param>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.AddImage(System.Drawing.Image,System.String)">
+ <summary>
+ Ajoute une image avec un nom
+ </summary>
+ <param name="_image">Image</param>
+ <param name="_name">Nom associé à l'image</param>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.RemoveImage(ZPlateform.GameRessourcesManager.RessourceImage)">
+ <summary>
+ Supprime une image
+ </summary>
+ <param name="_image">Instance de la ressource à supprimer</param>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.RemoveImageByName(System.String)">
+ <summary>
+ Supprimer une ressource d'image avec un nom
+ </summary>
+ <param name="_name">Nom de l'image</param>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.GetImage(System.String)">
+ <summary>
+ Récupère une image
+ </summary>
+ <param name="_name">Nom de l'image</param>
+ <returns>Image ou rien</returns>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.ImageNameExist(System.String)">
+ <summary>
+ Vérifie si un nom d'image est déjà utilisé
+ </summary>
+ <param name="_name">Nom de l'image</param>
+ <returns>True si le nom existe sinon retourne false</returns>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.AddByReadingTextFile(System.String,System.String)">
+ <summary>
+ Ajouter une ressource "Fichier de texte" depuis un chemin de fichier
+ </summary>
+ <param name="_path">Chemin vers le fichier</param>
+ <param name="_name">Nom de la ressource</param>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.TextFileNameExist(System.String)">
+ <summary>
+ Vérifie si le nom de ressource pour fichier texte existe déjà
+ </summary>
+ <param name="_name">Nom de ressource</param>
+ <returns>True si il existe déjà sinon retourne false</returns>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.RemoveTextFileByName(System.String)">
+ <summary>
+ Supprime la ressource de texte selon son nom
+ </summary>
+ <param name="_name">Nom de la ressource</param>
+</member>
+<member name="M:ZPlateform.GameRessourcesManager.RemoveTextFile(ZPlateform.GameRessourcesManager.RessourceTextFile)">
+ <summary>
+ Supprime la ressource text
+ </summary>
+ <param name="_textFile">Instance de la ressource à supprimer</param>
+</member>
+<member name="P:ZPlateform.GameRessourcesManager.GetNoTexture">
+ <summary>
+ Récupère l'image par défaut pour les textures inexistantes
+ </summary>
+ <returns>Image</returns>
+</member>
+<member name="T:ZPlateform.GameRessourcesManager.RessourceImage">
+ <summary>
+ Structure Image/Nom pour ressource d'image
+ </summary>
+</member>
+<member name="T:ZPlateform.GameRessourcesManager.RessourceTextFile">
+ <summary>
+ Liste de texte/Nom pour ressource de fichier
+ </summary>
+</member>
+<member name="T:ZPlateform.GameScreenElementsManager">
+ <summary>
+ Classe qui gère les ScreenElements
+ Il s'agit de l'interface visuelle du jeu
+ </summary>
+</member>
+<member name="F:ZPlateform.GameScreenElementsManager.parent">
+ Accès à GameEngine
+</member>
+<member name="F:ZPlateform.GameScreenElementsManager.listScreenElements">
+ <summary>
+ Liste des ScreenElements
+ </summary>
+</member>
+<member name="M:ZPlateform.GameScreenElementsManager.#ctor(ZPlateform.GameEngine)">
+ <summary>
+ Créer la classe de gestion des ScreenElements
+ </summary>
+ <param name="_parent"></param>
+</member>
+<member name="M:ZPlateform.GameScreenElementsManager.GetScreenElementAtPoint(System.Drawing.Point)">
+ <summary>
+ Retourne le premier ScreenElement sur un point
+ </summary>
+ <param name="_point">Point visé</param>
+ <returns>ScreenElement se trouvant sur ce point</returns>
+</member>
+<member name="M:ZPlateform.GameScreenElementsManager.AddScreenElement(ZPlateform.ScreenElements.AbstractScreenElement)">
+ <summary>
+ Ajouter un élément d'interface
+ </summary>
+ <param name="_screenElement"></param>
+</member>
+<member name="M:ZPlateform.GameScreenElementsManager.GetScreenElementByName(System.String)">
+ <summary>
+ Retourne le ScreenElements selon son nom
+ </summary>
+ <param name="_name">Nom du ScreenElements voulu</param>
+ <returns>ScreenElement</returns>
+</member>
+<member name="M:ZPlateform.GameScreenElementsManager.RemoveScreenElement(ZPlateform.ScreenElements.AbstractScreenElement)">
+ <summary>
+ Supprime un ScreenElement
+ </summary>
+ <param name="_screenElement">Instance de l'objet à supprimer</param>
+</member>
+<member name="M:ZPlateform.GameScreenElementsManager.RemoveScreenElementByName(System.String)">
+ <summary>
+ Supprime un ScreenElement selon son nom
+ </summary>
+ <param name="_name">Nom du ScreenElement</param>
+</member>
+<member name="M:ZPlateform.GameScreenElementsManager.NameExist(System.String)">
+ <summary>
+ Permet de tester l'existence d'un nom de ScreenElement
+ </summary>
+ <param name="_name">Nom du screen Element</param>
+ <returns>Retourne true si le nom existe sinon retourne false</returns>
+</member>
+<member name="P:ZPlateform.GameScreenElementsManager.GetListScreenElements">
+ <summary>
+ Retourne la liste des ScreenElements
+ </summary>
+ <returns>Liste des ScreenElements</returns>
+</member>
+<member name="T:ZPlateform.GameSpritesManager">
+ <summary>
+ Classe qui gère les Sprites
+ Il s'agit des objets affichés sur l'écran de jeu
+ </summary>
+</member>
+<member name="F:ZPlateform.GameSpritesManager.parent">
+ <summary>
+ GameEngine parent
+ </summary>
+</member>
+<member name="F:ZPlateform.GameSpritesManager.listSprites">
+ <summary>
+ Liste contenant les sprites
+ </summary>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.#ctor(ZPlateform.GameEngine)">
+ <summary>
+ Créer le SpriteManager
+ </summary>
+ <param name="_parent"></param>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.AddSprite(ZPlateform.Sprites.AbstractSprite,System.Boolean)">
+ <summary>
+ Ajoute un sprite à la scène
+ Lui ajoute l'horloge de jeu et un accès à GameEngine
+ </summary>
+ <param name="_sprite"></param>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.GetSpriteAtPoint(System.Drawing.Point)">
+ <summary>
+ Retourne le premier sprite sur un point
+ </summary>
+ <param name="_point">Point visé</param>
+ <returns>Sprite se trouvant sur ce point</returns>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.GetSpriteByName(System.String)">
+ <summary>
+ Retourne un sprite selon son nom
+ </summary>
+ <param name="_name">Nom du sprite</param>
+ <returns>Sprite</returns>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.GetInSceneSprites(System.Drawing.Rectangle)">
+ <summary>
+ Permet de récupérer la liste des sprites qui sont visible sur la scène
+ Va servir pour le dessin des éléments
+ </summary>
+ <param name="_rectScene">Rectangle de la scene</param>
+ <returns>Liste des sprites visibles sur la scène</returns>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.GetCollidingSprites(ZPlateform.Sprites.AbstractSprite)">
+ <summary>
+ Permet de récupérer la liste des sprites qui collisionne avec le sprite en paramètre
+ </summary>
+ <param name="_sprite">Sprite</param>
+ <returns>Liste des sprite en collision avec Sprite</returns>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.GetAllSprites">
+ <summary>
+ Retrourne tous les sprites
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.RemoveSprite(ZPlateform.Sprites.AbstractSprite)">
+ <summary>
+ Supprime un sprite
+ </summary>
+ <param name="_sprite">Instance du sprite à supprimer</param>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.RemoveAllSprites">
+ <summary>
+ Supprime tous les sprites de la liste
+ </summary>
+</member>
+<member name="M:ZPlateform.GameSpritesManager.NameExist(System.String)">
+ <summary>
+ Vérifie l'existence d'un nom de sprite
+ </summary>
+ <param name="_name">Nom du sprite</param>
+ <returns>Retourne true si le nom de sprite existe sinon retourne false</returns>
+</member>
+<member name="P:ZPlateform.GameSpritesManager.GetListSprites">
+ <summary>
+ Retourne la liste des sprites
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.GameViewManager">
+ <summary>
+ Gère l'affichage sur le contrôle graphique souhaité
+ </summary>
+</member>
+<member name="F:ZPlateform.GameViewManager.parent">
+ <summary>
+ Game Engine parent
+ </summary>
+</member>
+<member name="M:ZPlateform.GameViewManager.SetViewControl(System.Windows.Forms.PictureBox)">
+ <summary>
+ Définit le control (Picturebox) sur lequel afficher l'image du jeu
+ </summary>
+ <param name="_viewControl"></param>
+</member>
+<member name="M:ZPlateform.GameViewManager.CreateCamera">
+ <summary>
+ Créer un objet caméra sans l'ajouter dans la liste des caméras et le retourne
+ </summary>
+ <returns>Caméra</returns>
+</member>
+<member name="M:ZPlateform.GameViewManager.AddCamera(ZPlateform.Camera)">
+ <summary>
+ Ajoute une camera dans la liste de camera
+ </summary>
+ <param name="_camera">Objet caméra</param>
+</member>
+<member name="M:ZPlateform.GameViewManager.GetCameraByIndex(System.Int32)">
+ <summary>
+ Retourne une camera selon l'index
+ </summary>
+ <param name="_index">Index de la caméra</param>
+ <returns>Caméra</returns>
+</member>
+<member name="M:ZPlateform.GameViewManager.GetCameraByName(System.String)">
+ <summary>
+ Retourne une camera selon un nom
+ </summary>
+ <param name="_name">Nom de la caméra</param>
+ <returns>Caméra</returns>
+</member>
+<member name="M:ZPlateform.GameViewManager.RemoveCamera(ZPlateform.Camera)">
+ <summary>
+ Supprime une caméra
+ </summary>
+ <param name="_camera">Caméra à supprimer</param>
+</member>
+<member name="M:ZPlateform.GameViewManager.InitializeGraphics(System.Drawing.Size)">
+ <summary>
+ Initialise les composants graphiques pour le dessin
+ </summary>
+ <param name="_viewSize"></param>
+</member>
+<member name="M:ZPlateform.GameViewManager.DrawView">
+ <summary>
+ Redessine l'intégralité de la fenêtre de jeu
+ Tous les sprites visibles seront dessiné
+ </summary>
+</member>
+<member name="M:ZPlateform.SpriteFactory.CreateStaticPlateform(System.Drawing.Point,System.Drawing.Size,System.Drawing.Image)">
+ <summary>
+ Créer une plateforme 
+ </summary>
+ <param name="_position">Position haut gauche de la plateforme</param>
+ <param name="_size">Taille de la plateforme</param>
+ <param name="_img">Image de la plateforme</param>
+ <returns>Objet plateforme</returns>
+</member>
+<member name="T:ZPlateform.FormMain">
+ <summary>
+ Formulaire principal (démarrage)
+ </summary>
+</member>
+<member name="F:ZPlateform.FormMain.Game">
+ <summary>
+ Moteur de jeu
+ </summary>
+</member>
+<member name="T:ZPlateform.ScreenElements.AbstractScreenElement">
+ <summary>
+ Classe de base pour les éléments qui seront affichés sur l'écran de jeu
+ Classe Abstraite
+ </summary>
+</member>
+<member name="F:ZPlateform.ScreenElements.AbstractScreenElement.name">
+ <summary>
+ Nom de l'objet
+ </summary>
+</member>
+<member name="F:ZPlateform.ScreenElements.AbstractScreenElement.img">
+ <summary>
+ Image de l'élément
+ </summary>
+</member>
+<member name="F:ZPlateform.ScreenElements.AbstractScreenElement.g">
+ <summary>
+ Modificateur graphique de l'image
+ </summary>
+</member>
+<member name="M:ZPlateform.ScreenElements.AbstractScreenElement.Draw">
+ <summary>
+ Dessine l'image finale de l'élément
+ </summary>
+</member>
+<member name="M:ZPlateform.ScreenElements.AbstractScreenElement.UpdateSize">
+ <summary>
+ Mets à jour la taille de l'élément graphique
+ </summary>
+</member>
+<member name="P:ZPlateform.ScreenElements.AbstractScreenElement.GetImage">
+ <summary>
+ Récupère l'image de l'élément
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.ScreenElements.AbstractScreenElement.GetPosition">
+ <summary>
+ Retourne ou modifie la position de l'élément
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.ScreenElements.AbstractScreenElement.GetX">
+ <summary>
+ Retourne ou modifie la coordonnée X de la position
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.ScreenElements.AbstractScreenElement.GetY">
+ <summary>
+ Retourne ou modifie la coordonnée Y de la position
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.ScreenElements.AbstractScreenElement.GetSize">
+ <summary>
+ Retourne ou modifie la taille du screenElement
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.ScreenElements.AbstractScreenElement.GetShow">
+ <summary>
+ Affiche ou non l'élément sur l'écran de jeu
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.ScreenElements.AbstractScreenElement.GetName">
+ <summary>
+ Retourne ou modifie le nom du ScreenElement
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.Sprites.AbstractSprite">
+ <summary>
+ Classe abstraite pour tous les éléments qui seront affichés sur la scène
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.name">
+ <summary>
+ Nom du sprite
+ Servira pour les scénarios
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.position">
+ <summary>
+ Position du sprite sur la scène
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.size">
+ <summary>
+ Taille du sprite
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.hitbox">
+ <summary>
+ Hitbox du sprite
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.listImage">
+ <summary>
+ Liste d'images pour affichage
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.currentImage">
+ <summary>
+ Image courante qui sera dessinée
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.currentImageIndex">
+ <summary>
+ Index de l'image courante
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite._TickHandler">
+ <summary>
+ Horloge de jeu
+ </summary>
+</member>
+<member name="F:ZPlateform.Sprites.AbstractSprite.parentGameEngine">
+ <summary>
+ Accès aux méthodes de GameEngine
+ </summary>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.GetCurrentImage">
+ <summary>
+ Retourne l'image actuellement affichée par le sprite
+ </summary>
+ <returns>Image du sprite</returns>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.SetCurrentImage(System.Int32)">
+ <summary>
+ Change l'image courante
+ L'image courante est l'image affichée sur la scène
+ </summary>
+ <param name="_index"></param>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.AddImage(System.Drawing.Image)">
+ <summary>
+ Ajoute une image dans la liste des images
+ </summary>
+ <param name="_image"></param>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.SetTickHandler(System.Windows.Forms.Timer)">
+ <summary>
+ Horloge qui définit la cadence du jeu
+ </summary>
+ <param name="_timer"></param>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.UpdateHitBox">
+ <summary>
+ Met à jour la hitbox du sprite
+ </summary>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.Tick">
+ <summary>
+ Tick de l'horloge de jeu
+ La méthode doit être override
+ </summary>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.Collide(ZPlateform.Sprites.AbstractSprite)">
+ <summary>
+ Méthode qui doit être appellée en cas de collision avec un objet
+ La méthode doit être override
+ </summary>
+ <param name="_sprite">AbstractSprite</param>
+</member>
+<member name="M:ZPlateform.Sprites.AbstractSprite.Dispose">
+ <summary>
+ Suppression de l'objet
+ </summary>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetHitbox">
+ <summary>
+ Retourne la hitbox du sprite
+ </summary>
+ <returns>Hitbox</returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetPosition">
+ <summary>
+ Retourne la position du sprite
+ </summary>
+ <returns>Position du sprite</returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetX">
+ <summary>
+ Retourne la coordonnée X de la position du sprite
+ </summary>
+ <returns>Position.X</returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetY">
+ <summary>
+ Retourne la coordonnée Y de la position du sprite
+ </summary>
+ <returns>Position.Y</returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetSize">
+ <summary>
+ Retourne la taille du sprite
+ </summary>
+ <returns>Taille</returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.Top">
+ <summary>
+ Récupère la coordonnée Y du haut
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.Bottom">
+ <summary>
+ Récupère la coordonnée Y du bas
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.Left">
+ <summary>
+ Récupère la coordonnée X de gauche
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.Right">
+ <summary>
+ Récupère la coordonnée X de la droite
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetCollisionOn">
+ <summary>
+ Retourne l'état des collsions du sprite
+ </summary>
+ <returns>Etat des collsions</returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetName">
+ <summary>
+ Retourne ou modifie le nom du sprite
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetParent">
+ <summary>
+ Retourne ou modifie le parent du Sprite
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.AbstractSprite.GetVisible">
+ <summary>
+ Retourne ou modifie la valeur indiquant si l'objet est invisible
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.Sprites.FallingPlateform">
+ <summary>
+ Plateforme qui va tomber si il y a un contact avec le joueur
+ </summary>
+</member>
+<member name="T:ZPlateform.Sprites.FloatingText">
+ <summary>
+ Texte flottant
+ Avec déplacement
+ </summary>
+</member>
+<member name="M:ZPlateform.Sprites.FloatingText.ConstructImage">
+ <summary>
+ Construit l'image contenant le texte
+ </summary>
+</member>
+<member name="P:ZPlateform.Sprites.FloatingText.GetTextColor">
+ <summary>
+ Obtient ou modifie la couleur du texte
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.FloatingText.GetText">
+ <summary>
+ Obtient ou modifie le texte
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.FloatingText.GetPolice">
+ <summary>
+ Obtient ou modifie la police du texte
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.FloatingText.GetPoliceSize">
+ <summary>
+ Obtient ou modifie la taille de la police du texte
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.Money.GetMoneyValue">
+ <summary>
+ Retourne ou modifie la valeur de la monnaie
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.Sprites.MovingPlateform">
+ <summary>
+ Plateforme mouvante
+ </summary>
+</member>
+<member name="M:ZPlateform.Sprites.MovingPlateform.AddNode(System.Int32,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ Ajoute un point de passage pour la plateforme
+ </summary>
+ <param name="_xEnd"></param>
+ <param name="_yEnd"></param>
+ <param name="_speed"></param>
+ <param name="_breakTime"></param>
+</member>
+<member name="T:ZPlateform.Sprites.Player">
+ <summary>
+ Sprite pour le joueur
+ </summary>
+</member>
+<member name="M:ZPlateform.Sprites.Player.#ctor">
+ <summary>
+ Créer un nouveau Joueur
+ </summary>
+</member>
+<member name="P:ZPlateform.Sprites.Player.GetHealthPoints">
+ <summary>
+ Retourne ou modifie les points de vie
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.Player.GetMaxHealthPoints">
+ <summary>
+ Retourne ou modifie les points de vie maximum
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.Player.GetManaPoints">
+ <summary>
+ Retourne ou modifie les points de mana
+ </summary>
+ <returns></returns>
+</member>
+<member name="P:ZPlateform.Sprites.Player.GetMaxManaPoints">
+ <summary>
+ Retourne ou modifie les points de mana Maximum
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:ZPlateform.Sprites.StaticPlateform">
+ <summary>
+ Plateforme statique
+ Collsions On
+ </summary>
+</member>
+</members>
+</doc>

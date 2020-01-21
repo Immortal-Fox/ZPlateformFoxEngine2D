@@ -4,17 +4,25 @@
 ''' Ajouter, Lire des données
 ''' </summary>
 Public Class GameCacheManager
-
-    Protected parent As GameEngine
+    ''' <summary>
+    ''' Game Engine parent
+    ''' </summary>
+    Private ReadOnly parent As GameEngine
     ''' <summary>
     ''' Objet pour lire le fichier de cache
     ''' </summary>
-    Protected pFile As ParameterFileReader
+    Private pFile As ParameterFileReader
     ''' <summary>
     ''' Chemin vers le cache du jeu
     ''' </summary>
-    Protected cachePath As String
+    Private cachePath As String
 
+
+    ''' <summary>
+    ''' Ce déclenche lors que le cache a été écrit
+    ''' </summary>
+    Event CacheSaved()
+    Event CacheReaded()
 
     Sub New(ByVal _parent As GameEngine)
         parent = _parent
@@ -37,6 +45,7 @@ Public Class GameCacheManager
         pFile = New ParameterFileReader()
         ' Va lire le fichier de cache à l'endroit indiqué
         pFile.ReadFile(_cachePath)
+        RaiseEvent CacheReaded()
     End Sub
 
     ''' <summary>
@@ -44,6 +53,7 @@ Public Class GameCacheManager
     ''' </summary>
     Public Sub WriteCache()
         pFile.WriteFile(cachePath)
+        RaiseEvent CacheSaved()
     End Sub
 
     ''' <summary>

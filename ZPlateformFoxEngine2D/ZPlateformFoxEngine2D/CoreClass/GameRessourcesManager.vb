@@ -6,19 +6,23 @@ Public Class GameRessourcesManager
     ''' <summary>
     ''' GameEngine parent
     ''' </summary>
-    Protected parent As GameEngine
+    Private ReadOnly parent As GameEngine
     ''' <summary>
     ''' Liste contenant les images
     ''' </summary>
-    Protected listImages As List(Of RessourceImage)
+    Private ReadOnly listImages As List(Of RessourceImage)
     ''' <summary>
     ''' Liste contenant les listes de texte
     ''' </summary>
-    Protected listTextFile As List(Of RessourceTextFile)
+    Private ReadOnly listTextFile As List(Of RessourceTextFile)
     ''' <summary>
     ''' Liste contenant les sons
     ''' </summary>
-    Protected listSounds As List(Of String)
+    Private ReadOnly listSounds As List(Of String)
+    ''' <summary>
+    ''' Image générée par la classe pour remplacer les images manquantes
+    ''' </summary>
+    Private noTextureImage As Image
 
     ''' <summary>
     ''' Créer le gestionnaire de ressource
@@ -29,7 +33,30 @@ Public Class GameRessourcesManager
         listImages = New List(Of RessourceImage)
         listTextFile = New List(Of RessourceTextFile)
         listSounds = New List(Of String)
+
+        ' Créer l'image noTexture
+
+        Dim tempImg As New Bitmap(40, 40)
+        Dim tempG As Graphics = Graphics.FromImage(tempImg)
+        tempG.DrawString("No Texture", New Font("Consolas", 10), New SolidBrush(Color.Black), New PointF(0, 10))
+        tempG.Dispose()
+        noTextureImage = tempImg
+        tempImg.Dispose()
     End Sub
+
+    Public Function LoadExternalImage(ByVal _path As String) As Image
+        Try
+            ' Si le fichier existe
+            If File.Exists(_path) Then
+                Return Image.FromFile(_path)
+            Else
+                Return noTextureImage
+            End If
+        Catch
+
+        End Try
+        Return Nothing
+    End Function
 
     ''' <summary>
     ''' Ajoute une image avec un nom
@@ -164,11 +191,21 @@ Public Class GameRessourcesManager
     ''' Supprime la ressource text
     ''' </summary>
     ''' <param name="_textFile">Instance de la ressource à supprimer</param>
-    Protected Sub RemoveTextFile(ByVal _textFile As RessourceTextFile)
+    Private Sub RemoveTextFile(ByVal _textFile As RessourceTextFile)
         If listTextFile.Contains(_textFile) Then
             listTextFile.Remove(_textFile)
         End If
     End Sub
+
+    ''' <summary>
+    ''' Récupère l'image par défaut pour les textures inexistantes
+    ''' </summary>
+    ''' <returns>Image</returns>
+    Public ReadOnly Property GetNoTexture As Image
+        Get
+            Return noTextureImage
+        End Get
+    End Property
 
     ''' <summary>
     ''' Structure Image/Nom pour ressource d'image

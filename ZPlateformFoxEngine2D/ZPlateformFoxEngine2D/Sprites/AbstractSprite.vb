@@ -52,8 +52,8 @@
 
 
         ' Propriétés des sprites
-        Public visible As Boolean        ' Le sprite est visible à l'écran
-        Public collisionOn As Boolean    ' Les collisions du sprite sont activent
+        Private visible As Boolean        ' Le sprite est visible à l'écran
+        Private collisionOn As Boolean    ' Les collisions du sprite sont activent
 
         Public Event OnDestroyed()
 
@@ -288,9 +288,18 @@
             End Set
         End Property
 
-
-
-
+        ''' <summary>
+        ''' Retourne ou modifie la valeur indiquant si l'objet est invisible
+        ''' </summary>
+        ''' <returns></returns>
+        Public Property GetVisible As Boolean
+            Get
+                Return visible
+            End Get
+            Set(value As Boolean)
+                visible = value
+            End Set
+        End Property
 #End Region
 
     End Class

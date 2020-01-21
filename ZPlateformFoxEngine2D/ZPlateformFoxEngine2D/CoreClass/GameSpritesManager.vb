@@ -9,13 +9,16 @@ Public Class GameSpritesManager
     ''' <summary>
     ''' GameEngine parent
     ''' </summary>
-    Protected parent As GameEngine
+    Private parent As GameEngine
     ''' <summary>
     ''' Liste contenant les sprites
     ''' </summary>
-    Protected listSprites As List(Of AbstractSprite)
+    Private listSprites As List(Of AbstractSprite)
 
-
+    ''' <summary>
+    ''' Créer le SpriteManager
+    ''' </summary>
+    ''' <param name="_parent"></param>
     Sub New(ByVal _parent As GameEngine)
         parent = _parent
         listSprites = New List(Of AbstractSprite)
@@ -86,6 +89,7 @@ Public Class GameSpritesManager
     ''' <param name="_sprite">Sprite</param>
     ''' <returns>Liste des sprite en collision avec Sprite</returns>
     Public Function GetCollidingSprites(ByVal _sprite As AbstractSprite) As List(Of AbstractSprite)
+
         Dim listCollidingSprites As New List(Of AbstractSprite)
         For Each _spriteElement As AbstractSprite In listSprites
             If _spriteElement.GetCollisionOn And _spriteElement.Equals(_sprite) = False Then

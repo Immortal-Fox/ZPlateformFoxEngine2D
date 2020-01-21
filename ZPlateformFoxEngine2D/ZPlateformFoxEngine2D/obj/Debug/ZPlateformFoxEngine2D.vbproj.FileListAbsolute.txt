@@ -1,0 +1,11 @@
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\bin\Debug\ZPlateformFoxEngine2D.exe.config
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\bin\Debug\ZPlateformFoxEngine2D.exe
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\bin\Debug\ZPlateformFoxEngine2D.pdb
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\bin\Debug\ZPlateformFoxEngine2D.xml
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\obj\Debug\ZPlateform.FormMain.resources
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\obj\Debug\ZPlateform.Resources.resources
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\obj\Debug\ZPlateformFoxEngine2D.vbproj.GenerateResource.cache
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\obj\Debug\ZPlateformFoxEngine2D.exe
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\obj\Debug\ZPlateformFoxEngine2D.xml
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\obj\Debug\ZPlateformFoxEngine2D.pdb
+C:\Users\Ludovic\Documents\GitHub\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\ZPlateformFoxEngine2D\obj\Debug\ZPlateformFoxEngine2D.vbprojAssemblyReference.cache

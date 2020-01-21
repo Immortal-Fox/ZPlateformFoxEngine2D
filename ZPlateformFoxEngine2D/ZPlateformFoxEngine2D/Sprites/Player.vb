@@ -20,10 +20,10 @@
         Private isMovingLeft As Boolean
         Private isMovingRight As Boolean
 
-        Dim collideLeft As Boolean
-        Dim collideRight As Boolean
-        Dim collideTop As Boolean
-        Dim collideBot As Boolean
+        Private collideLeft As Boolean
+        Private collideRight As Boolean
+        Private collideTop As Boolean
+        Private collideBot As Boolean
 
         Private healthPoints As Integer
         Private maxHealthPoints As Integer
@@ -31,9 +31,11 @@
         Private maxManaPoints As Integer
         Private cameraJoueur As Camera
 
-
+        ''' <summary>
+        ''' Créer un nouveau Joueur
+        ''' </summary>
         Sub New()
-            collisionOn = True
+            GetCollisionOn = True
             healthPoints = 100
             maxHealthPoints = 100
             manaPoints = 100

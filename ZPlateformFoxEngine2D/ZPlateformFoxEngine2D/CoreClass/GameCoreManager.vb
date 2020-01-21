@@ -78,8 +78,8 @@ Public Class GameCoreManager
         parent.DialogManagement.AddMessageToLastCreatedDialog(mess)
         parent.DialogManagement.ShowDialog("Test")
 
-    End Sub
 
+    End Sub
     Public Overrides Sub Tick()
         '    Throw New NotImplementedException()
     End Sub

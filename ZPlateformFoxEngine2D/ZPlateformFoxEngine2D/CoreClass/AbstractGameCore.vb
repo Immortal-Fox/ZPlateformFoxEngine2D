@@ -2,7 +2,7 @@
     ''' <summary>
     ''' GameEngine parent
     ''' </summary>
-    Protected parent As GameEngine
+    Protected WithEvents parent As GameEngine
 
     ''' <summary>
     ''' Evènement lors du tick de l'horloge de jeu
