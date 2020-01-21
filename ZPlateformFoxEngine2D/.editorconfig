@@ -1,0 +1,7 @@
+﻿[*.{cs,vb}]
+
+# IDE0060: Supprimer le paramètre inutilisé
+dotnet_code_quality_unused_parameters = all:silent
+
+# CA1707: Les identificateurs ne doivent pas contenir de traits de soulignement
+dotnet_diagnostic.CA1707.severity = none
